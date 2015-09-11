@@ -1,0 +1,26 @@
+GIT
+  remote: git://github.com/taylorfinnell/phabulous.git
+  revision: f5920816d7b2ed42a583ccedfa4af7de278e36dc
+  specs:
+    phabulous (0.0.1)
+      httparty
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    byebug (6.0.2)
+    httparty (0.13.5)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.3)
+    multi_xml (0.5.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  byebug
+  phabulous!
+
+BUNDLED WITH
+   1.10.6
