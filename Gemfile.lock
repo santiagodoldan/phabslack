@@ -14,6 +14,7 @@ GEM
       multi_xml (>= 0.5.2)
     json (1.8.3)
     multi_xml (0.5.5)
+    slack-notifier (1.4.0)
 
 PLATFORMS
   ruby
@@ -21,6 +22,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   phabulous!
+  slack-notifier
 
 BUNDLED WITH
    1.10.6

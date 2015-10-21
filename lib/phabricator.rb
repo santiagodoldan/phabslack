@@ -1,4 +1,10 @@
-module Phabricator
-end
+require_relative 'options'
+require_relative 'phabricator/differential'
 
-require_relative 'phabricator/options'
+module Phabricator
+
+  def self.config
+    @config ||= Options.new('phabricator')
+  end
+
+end

@@ -1,0 +1,9 @@
+development:
+  url: https://hooks.slack.com/services/xxx
+
+staging:
+  url: https://hooks.slack.com/services/xxx
+
+production:
+  url: https://hooks.slack.com/services/xxx
+
