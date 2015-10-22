@@ -9,12 +9,16 @@ GEM
   remote: https://rubygems.org/
   specs:
     byebug (6.0.2)
+    chronic (0.10.2)
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     json (1.8.3)
     multi_xml (0.5.5)
+    rake (10.4.2)
     slack-notifier (1.4.0)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -22,7 +26,9 @@ PLATFORMS
 DEPENDENCIES
   byebug
   phabulous!
+  rake
   slack-notifier
+  whenever
 
 BUNDLED WITH
    1.10.6
