@@ -5,14 +5,21 @@ module Phabricator
                   'cristian.dotta', 'ivan.etchart', 'miguel.renom' ]
 
     def self.needs_review
-      Phabulous.revisions.by_status(Phabulous::Revision::NEEDS_REVIEW).
-        select { |revision| USERNAMES.include?(revision.author.name) }
+      revision_by_status(Phabulous::Revision::NEEDS_REVIEW)
     end
 
     def self.needs_revision
-      Phabulous.revisions.by_status(Phabulous::Revision::NEEDS_REVISION).
-        select { |revision| USERNAMES.include?(revision.author.name) }
+      revision_by_status(Phabulous::Revision::NEEDS_REVISION)
     end
 
+    def self.accepted
+      revision_by_status(Phabulous::Revision::ACCEPTED)
+    end
+
+    private
+      def self.revision_by_status(status)
+        Phabulous.revisions.by_status(status)
+          .select { |revision| USERNAMES.include?(revision.author.name) }
+      end
   end
 end
