@@ -14,6 +14,12 @@ module Slack
         message << "\t<#{revision.uri}|#{revision.title}> by #{revision.author.name}\n"
       end
 
+      message << "*Accepted:*\n"
+
+      Phabricator::Differential.accepted.each do |revision|
+        message << "\t<#{revision.uri}|#{revision.title}> by #{revision.author.name}\n"
+      end
+
       Slack.notifier.ping(message)
     end
 
