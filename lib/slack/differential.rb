@@ -2,25 +2,33 @@ module Slack
   class Differential
 
     def self.notify_pending!
-      message = "*Needs Review:*\n"
+      message = ''
 
-      Phabricator::Differential.needs_review.each do |revision|
-        message << "\t<#{revision.uri}|#{revision.title}> by #{revision.author.name}\n"
+      if (needs_review = Phabricator::Differential.needs_review).any?
+        message << "*Needs Review:*\n"
+
+        needs_review.each do |revision|
+          message << "\t<#{revision.uri}|#{revision.title}> by #{revision.author.name}\n"
+        end
       end
 
-      message << "*Needs Revision:*\n"
+      if (needs_revision = Phabricator::Differential.needs_revision).any?
+        message << "*Needs Revision:*\n"
 
-      Phabricator::Differential.needs_revision.each do |revision|
-        message << "\t<#{revision.uri}|#{revision.title}> by #{revision.author.name}\n"
+        needs_revision.each do |revision|
+          message << "\t<#{revision.uri}|#{revision.title}> by #{revision.author.name}\n"
+        end
       end
 
-      message << "*Accepted:*\n"
+      if (accepted = Phabricator::Differential.accepted).any?
+        message << "*Accepted:*\n"
 
-      Phabricator::Differential.accepted.each do |revision|
-        message << "\t<#{revision.uri}|#{revision.title}> by #{revision.author.name}\n"
+        accepted.each do |revision|
+          message << "\t<#{revision.uri}|#{revision.title}> by #{revision.author.name}\n"
+        end
       end
 
-      Slack.notifier.ping(message)
+      Slack.notifier.ping(message) unless message.empty?
     end
 
   end
