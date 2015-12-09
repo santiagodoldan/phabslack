@@ -2,7 +2,7 @@ module Phabricator
   class Differential
 
     USERNAMES = [ 'santiago.doldan', 'patricio.maite', 'guzman.iglesias', 'marianne.maisonneuve',
-                  'cristian.dotta', 'ivan.etchart', 'miguel.renom' ]
+                  'cristian.dotta', 'ivan.etchart', 'miguel.renom', 'julio.lucero' ]
 
     def self.needs_review
       revision_by_status(Phabulous::Revision::NEEDS_REVIEW)
